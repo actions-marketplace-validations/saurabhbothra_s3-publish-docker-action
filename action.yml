@@ -1,0 +1,6 @@
+name: 'S3 Publish'
+description: 'Sync a directory to an AWS S3 bucket'
+author: saurabhbothra
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
