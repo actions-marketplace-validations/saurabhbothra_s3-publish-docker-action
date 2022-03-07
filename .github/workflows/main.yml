@@ -1,4 +1,4 @@
-name: S3 Publish Files
+name: S3 Publish Files Workflow
 
 on:
   push:
