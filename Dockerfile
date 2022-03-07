@@ -1,6 +1,8 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+RUN apt-get install build-essential
+
 RUN pip install --quiet --no-cache-dir awscli
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
