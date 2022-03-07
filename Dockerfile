@@ -1,6 +1,7 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+RUN apt-get update
 RUN apt-get install build-essential
 
 RUN pip install --quiet --no-cache-dir awscli
