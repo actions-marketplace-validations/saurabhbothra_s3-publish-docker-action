@@ -32,6 +32,9 @@ if [ -z "$AWS_ACCOUNT_ID" ]; then
   exit 1
 fi
 
+mkdir -p ~/.aws
+touch ~/.aws/config
+
 echo "[profile s3-publish-action]
 region = ${AWS_REGION}
 role = ${AWS_ROLE}
@@ -54,3 +57,5 @@ null
 null
 text
 EOF
+
+rm -rf ~/.aws
