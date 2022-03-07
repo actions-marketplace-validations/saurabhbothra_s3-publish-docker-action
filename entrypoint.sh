@@ -32,30 +32,26 @@ if [ -z "$AWS_ACCOUNT_ID" ]; then
   exit 1
 fi
 
+if [ -z "$AWS_SESSION_TOKEN" ]; then
+  echo "AWS_SESSION_TOKEN is not set. Quitting."
+  exit 1
+fi
+
 mkdir -p ~/.aws
 touch ~/.aws/config
+touch ~/.aws/credentials
 
 echo "[profile s3-publish-action]
 region = ${AWS_REGION}
 role = ${AWS_ROLE}
 account = ${AWS_ACCOUNT_ID}" > ~/.aws/config
 
-aws configure --profile s3-publish-action <<-EOF > /dev/null 2>&1
-${AWS_ACCESS_KEY_ID}
-${AWS_SECRET_ACCESS_KEY}
-${AWS_REGION}
-text
-EOF
+echo "[s3-publish-action]
+aws_access_key_id = ${AWS_ACCESS_KEY_ID}
+aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+aws_session_token = ${AWS_SESSION_TOKEN}" > ~/.aws/credentials
 
 sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${S3_BUCKET_NAME}/${TARGET_DIR} \
               --profile s3-publish-action \
               $*"
-
-aws configure --profile s3-publish-action <<-EOF > /dev/null 2>&1
-null
-null
-null
-text
-EOF
-
 rm -rf ~/.aws
