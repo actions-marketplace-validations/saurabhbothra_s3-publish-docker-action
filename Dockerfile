@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM python:3.7-alpine
 
 RUN apt-get update
 RUN apt-get install build-essential
