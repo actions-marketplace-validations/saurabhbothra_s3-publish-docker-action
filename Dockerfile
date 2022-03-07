@@ -1,9 +1,6 @@
 # Container image that runs your code
 FROM python:3.7-alpine
 
-RUN apt-get update
-RUN apt-get install build-essential
-
 RUN pip install --quiet --no-cache-dir awscli
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
