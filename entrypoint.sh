@@ -28,7 +28,7 @@ if [ -z "$AWS_SESSION_TOKEN" ]; then
   exit 1
 fi
 
-if aws s3api head-bucket --bucket "$S3_BUCKET_NAME" 2>/dev/null; then
+if ! aws s3api head-bucket --bucket "$S3_BUCKET_NAME" ; then
   echo "Invalid S3 Bucket Name. Quitting."
   exit 1
 fi
