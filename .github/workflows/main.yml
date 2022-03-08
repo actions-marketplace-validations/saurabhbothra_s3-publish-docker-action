@@ -21,4 +21,4 @@ jobs:
           AWS_REGION: 'us-west-2'
           AWS_ROLE: 'Admin'
           AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
-          SOURCE_DIR: './'
+          SOURCE_DIR: './.github/'
