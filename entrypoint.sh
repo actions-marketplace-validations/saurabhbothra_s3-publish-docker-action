@@ -28,6 +28,11 @@ if [ -z "$AWS_SESSION_TOKEN" ]; then
   exit 1
 fi
 
+if aws s3api head-bucket --bucket "$S3_BUCKET_NAME" 2>/dev/null; then
+  echo "Invalid S3 Bucket Name. Quitting."
+  exit 1
+fi
+
 # s3 sync command to copy directory in local filesystem to an s3 bucket.
 sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${S3_BUCKET_NAME}/${TARGET_DIR} \
               $*"
