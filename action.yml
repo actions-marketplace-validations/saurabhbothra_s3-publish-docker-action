@@ -1,4 +1,4 @@
-name: 'S3 Publish'
+name: 'S3 Publish Docker Action'
 description: 'Sync a directory to an AWS S3 bucket'
 author: saurabhbothra
 runs:
