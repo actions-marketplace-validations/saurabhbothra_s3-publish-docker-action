@@ -23,16 +23,6 @@ if [ -z "$AWS_REGION" ]; then
   exit 1
 fi
 
-if [ -z "$AWS_ROLE" ]; then
-  echo "AWS_ROLE is not set. Quitting."
-  exit 1
-fi
-
-if [ -z "$AWS_ACCOUNT_ID" ]; then
-  echo "AWS_ACCOUNT_ID is not set. Quitting."
-  exit 1
-fi
-
 if [ -z "$AWS_SESSION_TOKEN" ]; then
   echo "AWS_SESSION_TOKEN is not set. Quitting."
   exit 1
