@@ -37,22 +37,21 @@ if [ -z "$AWS_SESSION_TOKEN" ]; then
   exit 1
 fi
 
-mkdir -p ~/.aws
-touch ~/.aws/config
-touch ~/.aws/credentials
+# mkdir -p ~/.aws
+# touch ~/.aws/config
+# touch ~/.aws/credentials
 
-echo "[profile s3-publish-action]
-region = ${AWS_REGION}
-role = ${AWS_ROLE}
-account = ${AWS_ACCOUNT_ID}" > ~/.aws/config
+# echo "[profile s3-publish-action]
+# region = ${AWS_REGION}
+# role = ${AWS_ROLE}
+# account = ${AWS_ACCOUNT_ID}" > ~/.aws/config
 
-echo "[s3-publish-action]
-aws_access_key_id = ${AWS_ACCESS_KEY_ID}
-aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
-aws_session_token = ${AWS_SESSION_TOKEN}" > ~/.aws/credentials
+# echo "[s3-publish-action]
+# aws_access_key_id = ${AWS_ACCESS_KEY_ID}
+# aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
+# aws_session_token = ${AWS_SESSION_TOKEN}" > ~/.aws/credentials
 
 
 sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${S3_BUCKET_NAME}/${TARGET_DIR} \
-              --profile s3-publish-action \
               $*"
-rm -rf ~/.aws
+# rm -rf ~/.aws
