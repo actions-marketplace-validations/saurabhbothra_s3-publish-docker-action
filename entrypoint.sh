@@ -33,7 +33,7 @@ if ! aws s3api head-bucket --bucket "$S3_BUCKET_NAME" ; then
   exit 1
 fi
 
-if ! [[ $(aws s3 ls s3://${S3_BUCKET_NAME}/${TARGET_DIR} | head) ]]; then
+if ! (aws s3 ls s3://${S3_BUCKET_NAME}/${TARGET_DIR} | head); then
   echo "Please provide a valid target for s3 bucket. Quitting.";
   exit 1
 fi
