@@ -36,4 +36,4 @@ fi
 
 # s3 sync command to copy directory in local filesystem to an s3 bucket.
 sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${S3_BUCKET_NAME}/${TARGET_DIR} \
-              $*"
+              --region ${AWS_REGION} $*"
