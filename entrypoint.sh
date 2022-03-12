@@ -8,23 +8,8 @@ if [ -z "$S3_BUCKET_NAME" ]; then
   exit 1
 fi
 
-if [ -z "$AWS_ACCESS_KEY_ID" ]; then
-  echo "AWS_ACCESS_KEY_ID is not set. Quitting."
-  exit 1
-fi
-
-if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
-  echo "AWS_SECRET_ACCESS_KEY is not set. Quitting."
-  exit 1
-fi
-
 if [ -z "$AWS_REGION" ]; then
   echo "AWS_REGION is not set. Quitting."
-  exit 1
-fi
-
-if [ -z "$AWS_SESSION_TOKEN" ]; then
-  echo "AWS_SESSION_TOKEN is not set. Quitting."
   exit 1
 fi
 
